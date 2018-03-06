@@ -1,0 +1,2693 @@
+<robot
+  name="xr1urdf">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="3.79670328452635E-06 -0.0141782461275252 0.362942206653709"
+        rpy="0 0 0" />
+      <mass
+        value="3.70172320150886" />
+      <inertia
+        ixx="0.0377313387345458"
+        ixy="6.65275081944975E-07"
+        ixz="1.71133445705258E-06"
+        iyy="0.0354067095410371"
+        iyz="-9.43041820108419E-05"
+        izz="0.00232463058386081" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Knee_Link">
+    <inertial>
+      <origin
+        xyz="-0.00183693951553424 -0.0529155687159218 -5.49383760220438E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.0222634661487604" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Knee_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Knee_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Knee_X"
+    type="continuous">
+    <origin
+      xyz="5.49383760162785E-05 -0.0131434525992938 0.404049107981184"
+      rpy="-1.5707963267949 0.0337339959823619 -1.5707963267949" />
+    <parent
+      link="base_link" />
+    <child
+      link="Knee_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Leg_Link">
+    <inertial>
+      <origin
+        xyz="0.00438470084324359 -0.294486716582321 -8.78877870124973E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.322927964021912" />
+      <inertia
+        ixx="0.000585655977412185"
+        ixy="-2.04958239149988E-05"
+        ixz="3.91248076060976E-09"
+        iyy="7.17300476714645E-07"
+        iyz="1.11796806508858E-07"
+        izz="0.000586373235206756" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Leg_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Leg_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Leg_D"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 6.93889390390723E-18" />
+    <parent
+      link="Knee_Link" />
+    <child
+      link="Leg_Link" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="Thigh_Link">
+    <inertial>
+      <origin
+        xyz="-0.0136036230291078 -0.000112566888697963 0.424066025843178"
+        rpy="0 0 0" />
+      <mass
+        value="5.12610482593271" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Thigh_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Thigh_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Back_Z"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="1.57066042912579 0 -0.00121611800675794" />
+    <parent
+      link="Leg_Link" />
+    <child
+      link="Thigh_Link" />
+    <axis
+      xyz="-0.0325121474774201 -0.000135825825076976 0.999471331163506" />
+  </joint>
+  <link
+    name="Thigh_Link2">
+    <inertial>
+      <origin
+        xyz="1.35165931884618E-08 -1.70912547448054E-08 -5.49373033778525E-05"
+        rpy="0 0 0" />
+      <mass
+        value="5.12610482593271" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Thigh_Link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Thigh_Link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Back_X"
+    type="continuous">
+    <origin
+      xyz="-0.0136036359907622 -5.7629583447044E-05 0.424066015793186"
+      rpy="-1.57066035921997 -0.0320680548961984 -4.35946841023116E-06" />
+    <parent
+      link="Thigh_Link" />
+    <child
+      link="Thigh_Link2" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Back_Link">
+    <inertial>
+      <origin
+        xyz="0.0644710859544463 3.16092881191969E-05 0.0178622293685076"
+        rpy="0 0 0" />
+      <mass
+        value="0.704367292272377" />
+      <inertia
+        ixx="6.88462926176165E-05"
+        ixy="8.34652783568835E-08"
+        ixz="-0.000489774804144933"
+        iyy="0.00616234707382642"
+        iyz="1.33626858787135E-07"
+        izz="0.00609350191663373" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Back_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Back_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Back_Y"
+    type="continuous">
+    <origin
+      xyz="-0.0138647143421331 -0.105654674591013 -2.69257267197509E-05"
+      rpy="-1.5707963267949 0 -1.57124614957808" />
+    <parent
+      link="Thigh_Link2" />
+    <child
+      link="Back_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Neck_Link">
+    <inertial>
+      <origin
+        xyz="-0.000111589154987985 0.0264348915901991 0.353170930853545"
+        rpy="0 0 0" />
+      <mass
+        value="0.0103446909694818" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Neck_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Neck_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Neck_Z"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="-1.45576756643559 0.00585422888906165 -1.5707963267949" />
+    <parent
+      link="Back_Link" />
+    <child
+      link="Neck_Link" />
+    <axis
+      xyz="-6.48829923723553E-05 0.103758479857577 0.994602520431073" />
+  </joint>
+  <link
+    name="Neck_Link2">
+    <inertial>
+      <origin
+        xyz="-0.000170025132941037 -0.0151167212261258 -5.48828282530945E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.0140062146286296" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Neck_Link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Neck_Link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Neck_X"
+    type="continuous">
+    <origin
+      xyz="-5.66462826414854E-05 0.0264756614309742 0.353526594203303"
+      rpy="-1.570120763762 -0.103943394823006 -1.57668196274022" />
+    <parent
+      link="Neck_Link" />
+    <child
+      link="Neck_Link2" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Head_Link">
+    <inertial>
+      <origin
+        xyz="0.0786139627936677 2.50488865014622E-06 0.024556417379692"
+        rpy="0 0 0" />
+      <mass
+        value="0.0888013589166292" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Head_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Head_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Head_Y"
+    type="continuous">
+    <origin
+      xyz="-0.0148356484587829 -0.0504585752470172 0"
+      rpy="-1.5707963267949 0 -1.58187971499664" />
+    <parent
+      link="Neck_Link2" />
+    <child
+      link="Head_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Left_Shoulder_Link">
+    <inertial>
+      <origin
+        xyz="-4.12637803951172E-05 -0.000755719323795478 -0.000675506301685058"
+        rpy="0 0 0" />
+      <mass
+        value="0.0156440867968973" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_Shoulder_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_Shoulder_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left_Shoulder_X"
+    type="continuous">
+    <origin
+      xyz="0.258474937704725 -0.151060434921511 0.00158495021114652"
+      rpy="1.5707963267949 -1.5707963267949 0" />
+    <parent
+      link="Back_Link" />
+    <child
+      link="Left_Shoulder_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Left_Arm_Link">
+    <inertial>
+      <origin
+        xyz="0.101776789592601 0.0389396321810506 0.00067822200452703"
+        rpy="0 0 0" />
+      <mass
+        value="0.0603362552750754" />
+      <inertia
+        ixx="1.63952678582468E-05"
+        ixy="-5.28281942795131E-05"
+        ixz="-4.5658926457696E-06"
+        iyy="0.000188461248408291"
+        iyz="-9.02493842733478E-07"
+        izz="0.000204422838152615" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_Arm_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_Arm_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left_Shoulder_Y"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="1.5707963267949 0 1.5707963267949" />
+    <parent
+      link="Left_Shoulder_Link" />
+    <child
+      link="Left_Arm_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Left_Elbow_Link">
+    <inertial>
+      <origin
+        xyz="7.21835970454165E-05 5.61206450980173E-05 -0.218666947457344"
+        rpy="0 0 0" />
+      <mass
+        value="0.00808614997974233" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_Elbow_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_Elbow_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left_Elbow_Z"
+    type="continuous">
+    <origin
+      xyz="0 0.0513427925767579 0.00307040580185031"
+      rpy="-1.5707963267949 0 1.5707963267949" />
+    <parent
+      link="Left_Arm_Link" />
+    <child
+      link="Left_Elbow_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Left_Forearm_Link">
+    <inertial>
+      <origin
+        xyz="-0.00492902609650398 0.04719028091162 0.000564015048774597"
+        rpy="0 0 0" />
+      <mass
+        value="0.14751742316436" />
+      <inertia
+        ixx="0.000262320015426274"
+        ixy="-3.68413036683364E-06"
+        ixz="3.81309726916082E-08"
+        iyy="4.24726895294767E-07"
+        iyz="-5.0226949355081E-07"
+        izz="0.000262731675732286" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_Forearm_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_Forearm_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left_Elbow_X"
+    type="continuous">
+    <origin
+      xyz="7.21835432308526E-05 5.61241489814741E-05 -0.218666930883292"
+      rpy="-1.5707963267949 0 -1.5707963267949" />
+    <parent
+      link="Left_Elbow_Link" />
+    <child
+      link="Left_Forearm_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Left_Wrist_Link">
+    <inertial>
+      <origin
+        xyz="0.00899172847358837 -0.00167059799934391 0.192027324072846"
+        rpy="0 0 0" />
+      <mass
+        value="0.0646072856279338" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_Wrist_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_Wrist_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left_Wrist_Z"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="-1.5707963267949 0 0" />
+    <parent
+      link="Left_Forearm_Link" />
+    <child
+      link="Left_Wrist_Link" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="Left_Wrist_Link2">
+    <inertial>
+      <origin
+        xyz="0.0124611804495024 0.00289724293639348 -0.0804796173648407"
+        rpy="0 0 0" />
+      <mass
+        value="0.0361826967926398" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_Wrist_Link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_Wrist_Link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left_Wrist_Y"
+    type="continuous">
+    <origin
+      xyz="0.0883192894929252 0.0118949477766215 0.222176978855445"
+      rpy="-1.5707963267949 0 -1.5707963267949" />
+    <parent
+      link="Left_Wrist_Link" />
+    <child
+      link="Left_Wrist_Link2" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Left_Hand_Link">
+    <inertial>
+      <origin
+        xyz="0.0312431339973074 0.0800454020147836 0.0124734698727677"
+        rpy="0 0 0" />
+      <mass
+        value="0.0154024949242438" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_Hand_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_Hand_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left_Wrist_X"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="-1.5707963267949 0 -1.5707963267949" />
+    <parent
+      link="Left_Wrist_Link2" />
+    <child
+      link="Left_Hand_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Left_1_1_Link">
+    <inertial>
+      <origin
+        xyz="-0.00218598501426465 -0.00133993200382798 -0.000138406942838412"
+        rpy="0 0 0" />
+      <mass
+        value="0.00270491937647517" />
+      <inertia
+        ixx="1.00759792910212E-08"
+        ixy="-1.62648557905908E-08"
+        ixz="-1.68014513023396E-09"
+        iyy="2.66416119997818E-08"
+        iyz="-1.02985046318417E-09"
+        izz="3.650482601789E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_1_1_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_1_1_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left_1_1_Joint"
+    type="continuous">
+    <origin
+      xyz="0.0434901201851731 0.0577281894210584 -0.0144771062637427"
+      rpy="0 -1.00156316575 1.94835151482426" />
+    <parent
+      link="Left_Hand_Link" />
+    <child
+      link="Left_1_1_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Left_1_2_Link">
+    <inertial>
+      <origin
+        xyz="-0.00420833876843257 -0.00178197841067773 -1.46049362792222E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.00170025166301577" />
+      <inertia
+        ixx="7.68047339596945E-09"
+        ixy="-1.81372347770667E-08"
+        ixz="-1.48726656688484E-10"
+        iyy="4.28339965892382E-08"
+        iyz="-6.29762111005597E-11"
+        izz="5.0513437166099E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_1_2_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_1_2_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left_1_2_Joint"
+    type="continuous">
+    <origin
+      xyz="-0.0145863076944239 -0.00868903405537458 0"
+      rpy="-6.90671092873486E-07 4.78610937881837E-07 -4.41951919144599E-07" />
+    <parent
+      link="Left_1_1_Link" />
+    <child
+      link="Left_1_2_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Left_2_1_Link">
+    <inertial>
+      <origin
+        xyz="6.03747477832817E-05 -0.00444197699469451 -8.93432146169826E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.00257050995799412" />
+      <inertia
+        ixx="7.79255726518317E-08"
+        ixy="1.05871278766641E-09"
+        ixz="2.12947371790211E-11"
+        iyy="4.59029139881311E-11"
+        iyz="-1.56674552629278E-09"
+        izz="7.79084491537514E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_2_1_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_2_1_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left_2_1_Joint"
+    type="continuous">
+    <origin
+      xyz="0.0713207399971868 0.0593046011451485 0.0116439951156551"
+      rpy="1.5707963267949 -1.5707963267949 0" />
+    <parent
+      link="Left_Hand_Link" />
+    <child
+      link="Left_2_1_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Left_2_2_Link">
+    <inertial>
+      <origin
+        xyz="0.000471698283953936 -0.00594969175755378 -0.000107461567427573"
+        rpy="0 0 0" />
+      <mass
+        value="0.00174377331167473" />
+      <inertia
+        ixx="7.1279973302012E-08"
+        ixy="5.6492906375507E-09"
+        ixz="1.02035308996531E-10"
+        iyy="4.71125807315662E-10"
+        iyz="-1.28701153918467E-09"
+        izz="7.17046080970898E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_2_2_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_2_2_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left_2_2_Joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.0180361175537143 0"
+      rpy="0 0 0" />
+    <parent
+      link="Left_2_1_Link" />
+    <child
+      link="Left_2_2_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Left_2_3_Link">
+    <inertial>
+      <origin
+        xyz="0.000826876125614079 -0.00433733468873099 -0.000103128698096616"
+        rpy="0 0 0" />
+      <mass
+        value="0.0017150608380904" />
+      <inertia
+        ixx="3.86376947256019E-08"
+        ixy="7.36171325736179E-09"
+        ixz="1.75036840837227E-10"
+        iyy="1.42526480431607E-09"
+        iyz="-9.18155681386857E-10"
+        izz="4.00192982070035E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_2_3_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_2_3_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left_2_3_Joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.0220256805419884 0"
+      rpy="0 0 0" />
+    <parent
+      link="Left_2_2_Link" />
+    <child
+      link="Left_2_3_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Left_3_1_Link">
+    <inertial>
+      <origin
+        xyz="0.000137223598826314 -0.00542191503934142 1.81347684091136E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.00266106740478141" />
+      <inertia
+        ixx="1.27133149347771E-07"
+        ixy="3.21777909221976E-09"
+        ixz="-1.07624855250527E-11"
+        iyy="8.28661086991772E-11"
+        iyz="4.25216689455245E-10"
+        izz="1.27213171017288E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_3_1_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_3_1_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left_3_1_Joint"
+    type="continuous">
+    <origin
+      xyz="0.073592849982539 0.0748647411588435 0.0143258417343013"
+      rpy="1.5707963267949 -1.5707963267949 0" />
+    <parent
+      link="Left_Hand_Link" />
+    <child
+      link="Left_3_1_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Left_3_2_Link">
+    <inertial>
+      <origin
+        xyz="0.000567847258873405 -0.00617136328632895 1.97984209660516E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.00174377422788023" />
+      <inertia
+        ixx="7.6666841306772E-08"
+        ixy="7.0542643624777E-09"
+        ixz="-2.26312170136426E-11"
+        iyy="6.49872259147118E-10"
+        iyz="2.45957051876538E-10"
+        izz="7.73151354261923E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_3_2_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_3_2_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left_3_2_Joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.0205278778076161 0"
+      rpy="0 0 0" />
+    <parent
+      link="Left_3_1_Link" />
+    <child
+      link="Left_3_2_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Left_3_3_Link">
+    <inertial>
+      <origin
+        xyz="0.000921167450060101 -0.00455479635276779 2.16721478550203E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.00171505840101367" />
+      <inertia
+        ixx="4.25850919506789E-08"
+        ixy="8.61227974977579E-09"
+        ixz="-4.09789781544982E-11"
+        iyy="1.74272487754786E-09"
+        iyz="2.02623938673781E-10"
+        izz="4.43258885764287E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_3_3_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_3_3_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left_3_3_Joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.0220256042480496 0"
+      rpy="0 0 0" />
+    <parent
+      link="Left_3_2_Link" />
+    <child
+      link="Left_3_3_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Left_4_1_Link">
+    <inertial>
+      <origin
+        xyz="8.93006616162484E-05 -0.00476818117452027 6.55332852481931E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.00256743782510478" />
+      <inertia
+        ixx="8.94892201591478E-08"
+        ixy="1.67580202144827E-09"
+        ixz="-2.30314915968341E-11"
+        iyy="4.82875270752547E-11"
+        iyz="1.22966851864857E-09"
+        izz="8.95037076313339E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_4_1_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_4_1_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left_4_1_Joint"
+    type="continuous">
+    <origin
+      xyz="0.0706317293770647 0.0901645061794522 0.0135342539047116"
+      rpy="1.5707963267949 -1.5707963267949 0" />
+    <parent
+      link="Left_Hand_Link" />
+    <child
+      link="Left_4_1_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Left_4_2_Link">
+    <inertial>
+      <origin
+        xyz="0.000505623441994368 -0.00525106666735875 7.47474894066623E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.00174377568021046" />
+      <inertia
+        ixx="5.55154962806569E-08"
+        ixy="5.3445272663535E-09"
+        ixz="-7.60749630213671E-11"
+        iyy="5.258725646686E-10"
+        iyz="7.90057490746918E-10"
+        izz="5.60188772042886E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_4_2_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_4_2_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left_4_2_Joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.0203540802001998 0"
+      rpy="0 0 0" />
+    <parent
+      link="Left_4_1_Link" />
+    <child
+      link="Left_4_2_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Left_4_3_Link">
+    <inertial>
+      <origin
+        xyz="0.00086014460360076 -0.00365221304949082 7.55579092304708E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.00171506109632343" />
+      <inertia
+        ixx="2.7391264274351E-08"
+        ixy="6.44823853231191E-09"
+        ixz="-1.3339685938075E-10"
+        iyy="1.53036135326119E-09"
+        iyz="5.66409808126208E-10"
+        izz="2.88981906107009E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_4_3_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_4_3_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left_4_3_Link"
+    type="continuous">
+    <origin
+      xyz="0 -0.0220256805419927 0"
+      rpy="0 0 0" />
+    <parent
+      link="Left_4_2_Link" />
+    <child
+      link="Left_4_3_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Left_5_1_Link">
+    <inertial>
+      <origin
+        xyz="-0.000465859847999267 -0.00421153732721591 8.99791243181899E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.00247216445342281" />
+      <inertia
+        ixx="6.31186119071487E-08"
+        ixy="-6.97897924567541E-09"
+        ixz="1.49105158277568E-10"
+        iyy="8.00810813143714E-10"
+        iyz="1.34790724726087E-09"
+        izz="6.38618269268759E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_5_1_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_5_1_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left_5_1_Joint"
+    type="continuous">
+    <origin
+      xyz="0.0673939669258992 0.105356641006828 0.0129590738510026"
+      rpy="1.5707963267949 -1.5707963267949 0" />
+    <parent
+      link="Left_Hand_Link" />
+    <child
+      link="Left_5_1_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Left_5_2_Link">
+    <inertial>
+      <origin
+        xyz="-0.000126725942939721 -0.00538457998587816 9.95600028358377E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.00174377457432162" />
+      <inertia
+        ixx="5.83831377836835E-08"
+        ixy="-1.37381138097901E-09"
+        ixz="2.54015473639533E-11"
+        iyy="5.22910127427786E-11"
+        iyz="1.07912572768662E-09"
+        izz="5.83955230806009E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_5_2_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_5_2_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left_5_2_Joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.0182607269287086 0"
+      rpy="0 0 0" />
+    <parent
+      link="Left_5_1_Link" />
+    <child
+      link="Left_5_2_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Left_5_3_Link">
+    <inertial>
+      <origin
+        xyz="0.000240017224057781 -0.00378313830530785 9.9891870265819E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.00171506218865776" />
+      <inertia
+        ixx="2.93986457289656E-08"
+        ixy="1.86368861829883E-09"
+        ixz="-4.92092788979428E-11"
+        iyy="1.38710447356004E-10"
+        iyz="7.7570804437218E-10"
+        izz="2.94963922157929E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_5_3_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Left_5_3_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Left_5_3_Joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.0220256805419934 0"
+      rpy="0 0 0" />
+    <parent
+      link="Left_5_2_Link" />
+    <child
+      link="Left_5_3_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Right_Shoulder_Link">
+    <inertial>
+      <origin
+        xyz="-4.12637803934484E-05 -0.000755252933728245 0.000676027711021959"
+        rpy="0 0 0" />
+      <mass
+        value="0.0156440867968964" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_Shoulder_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_Shoulder_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Right_Shoulder_X"
+    type="continuous">
+    <origin
+      xyz="0.25847 0.15112 0.001585"
+      rpy="1.5708 -1.5708 0" />
+    <parent
+      link="Back_Link" />
+    <child
+      link="Right_Shoulder_Link" />
+    <axis
+      xyz="0 0.00069016 1" />
+  </joint>
+  <link
+    name="Right_Arm_Link">
+    <inertial>
+      <origin
+        xyz="0.101621502739847 -0.0390098449466575 0.00515480527178088"
+        rpy="0 0 0" />
+      <mass
+        value="0.0603362552750853" />
+      <inertia
+        ixx="1.72334091413746E-05"
+        ixy="5.28556416898521E-05"
+        ixz="-1.28094607204723E-05"
+        iyy="0.000188388301298347"
+        iyz="3.23442333474809E-06"
+        izz="0.000203657643979602" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_Arm_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_Arm_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Right_Shoulder_Y"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="1.57082668764085 -1.33689101189151E-06 1.61480129184152" />
+    <parent
+      link="Right_Shoulder_Link" />
+    <child
+      link="Right_Arm_Link" />
+    <axis
+      xyz="-0.0439907642815591 3.03902656184142E-05 0.999031937294477" />
+  </joint>
+  <link
+    name="Right_Elbow_Link">
+    <inertial>
+      <origin
+        xyz="0.000231822047778857 -2.51516452348423E-05 -0.218666842243576"
+        rpy="0 0 0" />
+      <mass
+        value="0.00808614997974196" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_Elbow_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_Elbow_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Right_Elbow_Z"
+    type="continuous">
+    <origin
+      xyz="-0.000167064372992076 -0.0516466951322389 0.0029862446509249"
+      rpy="-1.61480130234895 0 1.57010549404216" />
+    <parent
+      link="Right_Arm_Link" />
+    <child
+      link="Right_Elbow_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Right_Foream_Link">
+    <inertial>
+      <origin
+        xyz="-0.00492559218962726 0.0471936526046562 -0.000183628468743369"
+        rpy="0 0 0" />
+      <mass
+        value="0.14751742316687" />
+      <inertia
+        ixx="0.000262320482548675"
+        ixy="-3.68655513613982E-06"
+        ixz="-7.25727531994241E-08"
+        iyy="4.36149827445411E-07"
+        iyz="-1.79637421817203E-06"
+        izz="0.000262719785799656" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_Foream_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_Foream_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Right_Elbow_X"
+    type="continuous">
+    <origin
+      xyz="0.00023182210159195 -2.51481413512666E-05 -0.218666825669526"
+      rpy="-1.57947630138636 0 -1.5767307988545" />
+    <parent
+      link="Right_Elbow_Link" />
+    <child
+      link="Right_Foream_Link" />
+    <axis
+      xyz="-0.00593443722633651 -0.0086797127543666 0.99994472099277" />
+  </joint>
+  <link
+    name="Right_Wrist_Link">
+    <inertial>
+      <origin
+        xyz="0.00900148419784989 0.0016172077337219 0.192027324072846"
+        rpy="0 0 0" />
+      <mass
+        value="0.0646072856279335" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_Wrist_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_Wrist_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Right_Wrist_Z"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="-1.56211635220343 -8.67361737988404E-19 0" />
+    <parent
+      link="Right_Foream_Link" />
+    <child
+      link="Right_Wrist_Link" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="Right_Wrist_Link2">
+    <inertial>
+      <origin
+        xyz="-1.71577453078609E-08 -7.98325960893465E-09 1.71087415987842E-08"
+        rpy="0 0 0" />
+      <mass
+        value="0.0361826967926398" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_Wrist_Link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_Wrist_Link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Right_Wrist_Y"
+    type="continuous">
+    <origin
+      xyz="0.00784287714185615 0.000519681604099265 0.219279727935792"
+      rpy="-1.5707963267949 0 -1.5767307988545" />
+    <parent
+      link="Right_Wrist_Link" />
+    <child
+      link="Right_Wrist_Link2" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Right_Hand_Link">
+    <inertial>
+      <origin
+        xyz="0.0341403846272461 -0.000434232420096978 9.75720772289634E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.0154024961513519" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_Hand_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_Hand_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Right_Wrist_X"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="-1.5707963267949 1.89103620342991E-16 -1.5707963267949" />
+    <parent
+      link="Right_Wrist_Link2" />
+    <child
+      link="Right_Hand_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Right_1_1_Link">
+    <inertial>
+      <origin
+        xyz="0.00185760963264597 -0.001767267583071 -0.000138406942838537"
+        rpy="0 0 0" />
+      <mass
+        value="0.0027049193764752" />
+      <inertia
+        ixx="1.74492512961962E-08"
+        ixy="1.82297369626112E-08"
+        ixz="1.42776032422449E-09"
+        iyy="1.92683399946106E-08"
+        iyz="-1.35830044237048E-09"
+        izz="3.65048260178935E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_1_1_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_1_1_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Right_1_1_Joint"
+    type="continuous">
+    <origin
+      xyz="0.0463873711048263 -0.0227514450525238 0.0270481463075324"
+      rpy="-2.82585434013322 -0.967918454119807 -1.5707963267949" />
+    <parent
+      link="Right_Hand_Link" />
+    <child
+      link="Right_1_1_Link" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="Right_1_2_Link">
+    <inertial>
+      <origin
+        xyz="0.00374288829228811 -0.00262227944305504 -1.46049362790696E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.00170025166301581" />
+      <inertia
+        ixx="1.66313706613334E-08"
+        ixy="2.37380769676479E-08"
+        ixz="1.32277320587526E-10"
+        iyy="3.38830993238803E-08"
+        iyz="-9.26732541353336E-11"
+        izz="5.05134371661051E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_1_2_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_1_2_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Right_1_2_Joint"
+    type="continuous">
+    <origin
+      xyz="0.0124478206926872 -0.0115460575511548 0"
+      rpy="-7.75457443313983E-07 -3.23667641410902E-07 1.05731325888986E-07" />
+    <parent
+      link="Right_1_1_Link" />
+    <child
+      link="Right_1_2_Link" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="Right_2_1_Link">
+    <inertial>
+      <origin
+        xyz="-6.03747477833649E-05 -0.0044419769946944 -8.93432146169965E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.00257050995799409" />
+      <inertia
+        ixx="7.79255726518274E-08"
+        ixy="-1.05871278766638E-09"
+        ixz="-2.12947371790149E-11"
+        iyy="4.59029139881131E-11"
+        iyz="-1.56674552629229E-09"
+        izz="7.79084491537471E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_2_1_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_2_1_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Right_2_1_Joint"
+    type="continuous">
+    <origin
+      xyz="0.07421799091684 -0.0211750333284337 0.000927044928134585"
+      rpy="1.5707963267949 -1.5707963267949 0" />
+    <parent
+      link="Right_Hand_Link" />
+    <child
+      link="Right_2_1_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Right_2_2_Link">
+    <inertial>
+      <origin
+        xyz="-0.000471698283947192 -0.00594969175755466 -0.000107461567426005"
+        rpy="0 0 0" />
+      <mass
+        value="0.00174377331167817" />
+      <inertia
+        ixx="7.12799733018721E-08"
+        ixy="-5.64929063745717E-09"
+        ixz="-1.02035308993372E-10"
+        iyy="4.71125807300992E-10"
+        iyz="-1.28701153916362E-09"
+        izz="7.17046080969366E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_2_2_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_2_2_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Right_2_2_Joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.0180361175537143 0"
+      rpy="0 0 0" />
+    <parent
+      link="Right_2_1_Link" />
+    <child
+      link="Right_2_2_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Right_2_3_Link">
+    <inertial>
+      <origin
+        xyz="-0.000826876125614023 -0.00433733468873088 -0.000103128698096679"
+        rpy="0 0 0" />
+      <mass
+        value="0.0017150608380904" />
+      <inertia
+        ixx="3.86376947255992E-08"
+        ixy="-7.3617132573613E-09"
+        ixz="-1.75036840837329E-10"
+        iyy="1.42526480431601E-09"
+        iyz="-9.18155681387388E-10"
+        izz="4.00192982070007E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_2_3_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_2_3_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Right_2_3_Joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.0220256805419884 0"
+      rpy="0 0 0" />
+    <parent
+      link="Right_2_2_Link" />
+    <child
+      link="Right_2_3_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Right_3_1_Link">
+    <inertial>
+      <origin
+        xyz="-0.000137223598826314 -0.00542191503934142 1.81347684090824E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.00266106740478136" />
+      <inertia
+        ixx="1.27133149347767E-07"
+        ixy="-3.21777909222065E-09"
+        ixz="1.0762485525051E-11"
+        iyy="8.28661086992237E-11"
+        iyz="4.25216689455046E-10"
+        izz="1.27213171017284E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_3_1_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_3_1_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Right_3_1_Link"
+    type="continuous">
+    <origin
+      xyz="0.0764901009021922 -0.00561489331473879 -0.00175480169051168"
+      rpy="1.5707963267949 -1.5707963267949 0" />
+    <parent
+      link="Right_Hand_Link" />
+    <child
+      link="Right_3_1_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Right_3_2_Link">
+    <inertial>
+      <origin
+        xyz="-0.000567847258879595 -0.00617136328632539 1.97984209673527E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.00174377422787818" />
+      <inertia
+        ixx="7.66668413067844E-08"
+        ixy="-7.05426436256374E-09"
+        ixz="2.26312170155287E-11"
+        iyy="6.49872259162959E-10"
+        iyz="2.45957051894076E-10"
+        izz="7.73151354262203E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_3_2_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_3_2_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Right_3_2_Joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.0205278778076158 0"
+      rpy="0 0 0" />
+    <parent
+      link="Right_3_1_Link" />
+    <child
+      link="Right_3_2_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Right_3_3_Link">
+    <inertial>
+      <origin
+        xyz="-0.000921167450060184 -0.00455479635276812 2.16721478551278E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.00171505840101365" />
+      <inertia
+        ixx="4.25850919506804E-08"
+        ixy="-8.61227974977625E-09"
+        ixz="4.09789781545562E-11"
+        iyy="1.74272487754799E-09"
+        iyz="2.02623938674064E-10"
+        izz="4.43258885764303E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_3_3_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_3_3_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Right_3_3_Joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.0220256042480499 0"
+      rpy="0 0 0" />
+    <parent
+      link="Right_3_2_Link" />
+    <child
+      link="Right_3_3_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Right_4_1_Link">
+    <inertial>
+      <origin
+        xyz="-8.93006616163039E-05 -0.00476818117452005 6.55332852481701E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.00256743782510473" />
+      <inertia
+        ixx="8.94892201591416E-08"
+        ixy="-1.6758020214486E-09"
+        ixz="2.30314915968245E-11"
+        iyy="4.82875270752472E-11"
+        iyz="1.22966851864773E-09"
+        izz="8.95037076313277E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_4_1_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_4_1_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Right_4_1_Joint"
+    type="continuous">
+    <origin
+      xyz="0.073528980296718 0.00968487170586999 -0.000963213860921908"
+      rpy="1.5707963267949 -1.5707963267949 0" />
+    <parent
+      link="Right_Hand_Link" />
+    <child
+      link="Right_4_1_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Right_4_2_Link">
+    <inertial>
+      <origin
+        xyz="-0.000505623441993758 -0.00525106666736053 7.47474894039119E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.00174377568020993" />
+      <inertia
+        ixx="5.55154962807129E-08"
+        ixy="-5.34452726635067E-09"
+        ixz="7.60749630185442E-11"
+        iyy="5.25872564666717E-10"
+        iyz="7.90057490718828E-10"
+        izz="5.60188772043444E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_4_2_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_4_2_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Right_4_2_Joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.0203540802001998 0"
+      rpy="0 0 0" />
+    <parent
+      link="Right_4_1_Link" />
+    <child
+      link="Right_4_2_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Right_4_3_Link">
+    <inertial>
+      <origin
+        xyz="-0.000860144603600621 -0.00365221304949082 7.55579092303802E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.00171506109632349" />
+      <inertia
+        ixx="2.7391264274352E-08"
+        ixy="-6.44823853231167E-09"
+        ixz="1.33396859380607E-10"
+        iyy="1.530361353261E-09"
+        iyz="5.66409808125641E-10"
+        izz="2.88981906107017E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_4_3_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_4_3_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Right_4_3_Joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.0220256805419927 0"
+      rpy="0 0 0" />
+    <parent
+      link="Right_4_2_Link" />
+    <child
+      link="Right_4_3_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Right_5_1_Link">
+    <inertial>
+      <origin
+        xyz="0.000465859847999239 -0.0042115373272158 8.99791243182419E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.00247216445342274" />
+      <inertia
+        ixx="6.31186119071492E-08"
+        ixy="6.9789792456765E-09"
+        ixz="-1.49105158277699E-10"
+        iyy="8.00810813143992E-10"
+        iyz="1.34790724726185E-09"
+        izz="6.38618269268765E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_5_1_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_5_1_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Right_5_1_Joint"
+    type="continuous">
+    <origin
+      xyz="0.0702912178455524 0.0248770065332455 -0.00038803380721289"
+      rpy="1.5707963267949 -1.5707963267949 0" />
+    <parent
+      link="Right_Hand_Link" />
+    <child
+      link="Right_5_1_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Right_5_2_Link">
+    <inertial>
+      <origin
+        xyz="0.000126725942938888 -0.00538457998587516 9.95600028382074E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.0017437745743221" />
+      <inertia
+        ixx="5.83831377836035E-08"
+        ixy="1.37381138096906E-09"
+        ixz="-2.54015473643852E-11"
+        iyy="5.2291012743295E-11"
+        iyz="1.07912572771129E-09"
+        izz="5.83955230805196E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_5_2_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_5_2_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Right_5_2_Joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.0182607269287086 0"
+      rpy="0 0 0" />
+    <parent
+      link="Right_5_1_Link" />
+    <child
+      link="Right_5_2_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Right_5_3_Link">
+    <inertial>
+      <origin
+        xyz="-0.000240017224057976 -0.00378313830530796 9.98918702658971E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.00171506218865772" />
+      <inertia
+        ixx="2.93986457289647E-08"
+        ixy="-1.86368861829916E-09"
+        ixz="4.92092788979906E-11"
+        iyy="1.38710447356082E-10"
+        iyz="7.7570804437277E-10"
+        izz="2.94963922157921E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_5_3_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://xr1urdf/meshes/Right_5_3_Link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Right_5_3_Joint"
+    type="continuous">
+    <origin
+      xyz="0 -0.0220256805419934 0"
+      rpy="0 0 0" />
+    <parent
+      link="Right_5_2_Link" />
+    <child
+      link="Right_5_3_Link" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+</robot>
