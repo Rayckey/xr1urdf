@@ -326,109 +326,109 @@ Visualization Manager:
       Enabled: true
       Frame Timeout: 15
       Frames:
-        All Enabled: true
+        All Enabled: false
         Back_Link:
-          Value: true
+          Value: false
         Head_Link:
-          Value: true
+          Value: false
         Knee_Link:
-          Value: true
+          Value: false
         Left_1_1_Link:
-          Value: true
+          Value: false
         Left_1_2_Link:
-          Value: true
+          Value: false
         Left_2_1_Link:
-          Value: true
+          Value: false
         Left_2_2_Link:
-          Value: true
+          Value: false
         Left_2_3_Link:
-          Value: true
+          Value: false
         Left_3_1_Link:
-          Value: true
+          Value: false
         Left_3_2_Link:
-          Value: true
+          Value: false
         Left_3_3_Link:
-          Value: true
+          Value: false
         Left_4_1_Link:
-          Value: true
+          Value: false
         Left_4_2_Link:
-          Value: true
+          Value: false
         Left_4_3_Link:
-          Value: true
+          Value: false
         Left_5_1_Link:
-          Value: true
+          Value: false
         Left_5_2_Link:
-          Value: true
+          Value: false
         Left_5_3_Link:
-          Value: true
+          Value: false
         Left_Arm_Link:
-          Value: true
+          Value: false
         Left_Elbow_Link:
-          Value: true
+          Value: false
         Left_Forearm_Link:
-          Value: true
+          Value: false
         Left_Hand_Link:
-          Value: true
+          Value: false
         Left_Shoulder_Link:
-          Value: true
+          Value: false
         Left_Wrist_Link:
-          Value: true
+          Value: false
         Left_Wrist_Link2:
-          Value: true
+          Value: false
         Leg_Link:
-          Value: true
+          Value: false
         Neck_Link:
-          Value: true
+          Value: false
         Neck_Link2:
-          Value: true
+          Value: false
         Right_1_1_Link:
-          Value: true
+          Value: false
         Right_1_2_Link:
-          Value: true
+          Value: false
         Right_2_1_Link:
-          Value: true
+          Value: false
         Right_2_2_Link:
-          Value: true
+          Value: false
         Right_2_3_Link:
-          Value: true
+          Value: false
         Right_3_1_Link:
-          Value: true
+          Value: false
         Right_3_2_Link:
-          Value: true
+          Value: false
         Right_3_3_Link:
-          Value: true
+          Value: false
         Right_4_1_Link:
-          Value: true
+          Value: false
         Right_4_2_Link:
-          Value: true
+          Value: false
         Right_4_3_Link:
-          Value: true
+          Value: false
         Right_5_1_Link:
-          Value: true
+          Value: false
         Right_5_2_Link:
-          Value: true
+          Value: false
         Right_5_3_Link:
-          Value: true
+          Value: false
         Right_Arm_Link:
-          Value: true
+          Value: false
         Right_Elbow_Link:
-          Value: true
+          Value: false
         Right_Foream_Link:
-          Value: true
+          Value: false
         Right_Hand_Link:
-          Value: true
+          Value: false
         Right_Shoulder_Link:
-          Value: true
+          Value: false
         Right_Wrist_Link:
-          Value: true
+          Value: false
         Right_Wrist_Link2:
-          Value: true
+          Value: false
         Thigh_Link:
-          Value: true
+          Value: false
         Thigh_Link2:
-          Value: true
+          Value: false
         base_link:
-          Value: true
+          Value: false
       Marker Scale: 1
       Name: TF
       Show Arrows: true
@@ -524,25 +524,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 3.99631262
+      Distance: 2.63121295
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -0.173198536
-        Y: 0.281782329
-        Z: 0.351462781
+        X: -0.229974777
+        Y: 0.390889019
+        Z: 0.438895583
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.0500000007
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 0.844795704
+      Pitch: 0.749796987
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 5.06035662
+      Yaw: 5.07034302
     Saved: ~
 Window Geometry:
   Displays:
