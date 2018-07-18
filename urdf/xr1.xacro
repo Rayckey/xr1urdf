@@ -558,7 +558,7 @@
     type="revolute">
     <origin
       xyz="0.25847 -0.15106 0.001585"
-      rpy="1.5708 -1.5708 0" />
+      rpy="1.9199 -1.5708 0" />
     <parent
       link="Back_Link" />
     <child
@@ -618,7 +618,7 @@
     type="revolute">
     <origin
       xyz="0 0 0"
-      rpy="1.5708 0 1.5708" />
+      rpy="1.5708 0.3491 1.5708" />
     <parent
       link="Left_Shoulder_Link" />
     <child
@@ -684,7 +684,7 @@
     <child
       link="Left_Elbow_Link" />
     <axis
-      xyz="0 0 1" />
+      xyz="0 0 -1" />
     <limit 
       lower = "-3.14"
       upper = "3.14" 
@@ -800,7 +800,7 @@
     <child
       link="Left_Wrist_Link" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
     <limit 
       lower = "-3.14"
       upper = "3.14" 
@@ -1780,7 +1780,7 @@
     type="revolute">
     <origin
       xyz="0.25847 0.15112 0.001585"
-      rpy="1.5708 -1.5708 0" />
+      rpy="1.2217 -1.5708 0" />
     <parent
       link="Back_Link" />
     <child
@@ -1840,7 +1840,7 @@
     type="revolute">
     <origin
       xyz="0 0 0"
-      rpy="1.5708 -1.3369E-06 1.6148" />
+      rpy="1.5708 -0.3491 1.6148" />
     <parent
       link="Right_Shoulder_Link" />
     <child
@@ -1906,7 +1906,7 @@
     <child
       link="Right_Elbow_Link" />
     <axis
-      xyz="0 0 1" />
+      xyz="0 0 -1" />
     <limit 
       lower = "-3.14"
       upper = "3.14" 
@@ -2022,7 +2022,7 @@
     <child
       link="Right_Wrist_Link" />
     <axis
-      xyz="0 0 -1" />
+      xyz="0 0 1" />
     <limit 
       lower = "-3.14"
       upper = "3.14" 
